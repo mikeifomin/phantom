@@ -1,0 +1,12 @@
+{
+    "name": "MIDAS",
+    "magicbytes": "DE5F4AC3",
+    "port": 44433,
+    "protocol_number": 70920,
+    "magic_message": "DarkNet Signed Message:",
+    "magic_message_newline": true,
+    "bootstrap_ips": "94.177.163.108:44433,80.211.223.103:44433,195.181.211.241:44433,108.61.208.122:44433",
+    "max_connections": 16,
+    "broadcast_listen": true,
+    "bootstrap_chains": "[{\"username\":\"\",\"password\":\"\",\"format\":\"cryptocore\",\"url\":\"https://midas.ccore.online\"}]"
+}
