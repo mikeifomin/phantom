@@ -1,11 +1,12 @@
-FROM golang:1.12.4
+FROM golang:1.12 as compiler
 
-WORKDIR /go/src/phantom
+WORKDIR /app
 COPY . .
 
-RUN go get -d -v ./...
-RUN go install -v ./...
+#RUN go build -mod=vendor -o /bin/phantom cmd/server/main.go
+RUN go build -o /bin/phantom cmd/phantom/main.go
 
-RUN go build
-
-CMD ["build.sh"]
+FROM debian:buster
+RUN apt-get update && apt-get install -y ca-certificates
+COPY --from=compiler /bin/phantom /bin/phantom
+ENTRYPOINT ["bin/phantom"]
